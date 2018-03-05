@@ -1,0 +1,10 @@
+{
+    "plugins": ["node"],
+    "extends": ["eslint:recommended", "plugin:node/recommended"],
+    "rules": {
+        "node/exports-style": ["error", "module.exports"],
+        "semi": [2, "never"],
+        "space-before-function-paren": [2, "always"],
+        "generator-star-spacing": 1
+    }
+}

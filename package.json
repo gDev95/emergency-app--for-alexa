@@ -1,0 +1,10 @@
+{
+  "name": "emergency-app",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "alexa-sdk": "^1.0.25",
+    "eslint": "^4.18.2",
+    "eslint-plugin-node": "^6.0.1"
+  }
+}

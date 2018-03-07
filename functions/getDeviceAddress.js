@@ -13,7 +13,6 @@ module.exports = function (event) {
        Device ID: ${deviceId}`)
     const deviceAddressService = new Alexa.services.DeviceAddressService()
     deviceAddressService.getFullAddress(deviceId,apiEndpoint,token).then(data => {
-      console.log("data: ", data)
       resolve(data)
     })
     .catch(err => {

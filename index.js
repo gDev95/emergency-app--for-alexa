@@ -11,21 +11,44 @@
 'use strict'
 
 const Alexa = require('alexa-sdk')
-const getDeviceAdress = require('./functions/getDeviceAdress')
-const APP_ID = undefined  // TODO replace with your app ID (OPTIONAL).
+const getDeviceAddress = require('./functions/getDeviceAddress')
+const sendHelp = require('./functions/sendHelp')
+const APP_ID = 'amzn1.ask.skill.751f0d0c-e3d9-4ac4-934b-d6a7d84a4a13'  // TODO replace with your app ID (OPTIONAL).
 
 
 
 const handlers = {
+    
     'LaunchRequest': function () {
       this.emit(':ask', 'What is your emergency?', 'How can I help you' )
     },
     'InjuryHelpIntent': function () {
+      const accessToken = this.event.context.System.user.accessToken
+      const userId= this.event.context.System.user.userId
+      console.log('user id: ', userId)
+      //console.log("accessToken", accessToken)
+      getDeviceAddress(this.event)
+        .then((address) => {
+        sendHelp(address,accessToken)
+        .then(response => {
+          console.log(response)
+          this.emit(':tell', 'success')
+        })
+        .catch(error => {
+          console.log(error)
+          this.emit(':tell','failure')
+        })
+
+      })
+      .catch((error) => {
+        console.log('Error message: ',error)
+        this.emit(':tell', error)
+      })
       
-      this.emit(':tell', 'An ambulance is on the way!')
+      
     },
     'FireHelpIntent': function () {
-      getDeviceAdress()
+      
       this.emit(':tell', 'A fire truck is on the way!')
     },
     'PoliceHelpIntent': function () {

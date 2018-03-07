@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "alexa-sdk": "^1.0.25",
+    "axios": "^0.18.0",
     "eslint": "^4.18.2",
     "eslint-plugin-node": "^6.0.1"
   }

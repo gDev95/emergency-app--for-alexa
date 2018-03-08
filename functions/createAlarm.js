@@ -1,14 +1,16 @@
 'use strict'
 const axios = require('axios')
 module.exports = (address, token) => {
+    console.log("Token received: ", token)
+    console.log('Address received: ', address)
     const config = {
       headers:{ 
         'Content-Type': 'application/json', 
-        'Authentication': `Bearer ${token}`
+        'Authorization': `Bearer ${token}`
       }
     }
 
-    const body = {
+    const data = {
       "services": {
             "police": false,
             "fire": false,
@@ -17,16 +19,16 @@ module.exports = (address, token) => {
           "location.address": {
             "line1": address.addressLine1,
             "city": address.city,
-            "state": address.state,
-            "zip": address.zipcode
+            "state": address.stateOrRegion,
+            "zip": address.postalCode
           }
     }
-    return axios.post('https://api-sandbox.safetrek.io/v1/alarms', body,config)
+    return axios.post('https://api-sandbox.safetrek.io/v1/alarms',data, config)
       .then(response => {
         console.log('Response: ',response)
         return response})
       .catch(error => {
-        console.log('Error: ',error)
-        return error})
+        console.log('Error caught: ',error)
+        return Promise.reject(error)})
  
 }

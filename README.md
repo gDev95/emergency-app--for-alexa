@@ -1,2 +1,5 @@
-# emergency-app--for-alexa
-An Emergency app to reach out to first responders in case of an Emergency through the Safe Trek API
+# Safe Trek Alexa App
+
+The Safe Trek app for Amazon's Alexa is a project for Safe Trek, Inc.
+
+Please see 

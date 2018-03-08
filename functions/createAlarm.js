@@ -29,12 +29,10 @@ module.exports = (address,type,token) => {
           }
     }
     return axios.post('https://api-sandbox.safetrek.io/v1/alarms',data, config)
-      .then(response => {
-        console.log('Response: ',response)
-        return response
+      .then(() => {
+        return Promise.resolve()
       })
       .catch(error => {
-        console.log('Error caught: ',error)
         return Promise.reject(error)})
  
 }

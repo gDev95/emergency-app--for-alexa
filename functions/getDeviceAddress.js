@@ -13,8 +13,8 @@ module.exports = (event) => {
     deviceAddressService.getFullAddress(deviceId,apiEndpoint,token).then(data => {
       resolve(data)
     })
-    .catch(err => {
-      reject(err.message)
+    .catch(error => {
+      reject(error.message)
       })
     })
 }

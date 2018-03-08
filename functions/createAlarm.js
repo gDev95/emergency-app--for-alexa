@@ -17,9 +17,9 @@ module.exports = (address,type,token) => {
     }
     const data = {
       "services": {
-            "police": (type === 'police' || type === 'all') ? true : false,
-            "fire": (type === 'fire' || type === 'all') ? true : false,
-            "medical": (type === 'medical' || type === 'all') ? true : false
+            "police": (type === 'police') ? true : false,
+            "fire": (type === 'fire') ? true : false,
+            "medical": (type === 'medical') ? true : false
           },
           "location.address": {
             "line1": address.addressLine1,

@@ -1,7 +1,7 @@
-#Handlers
+# Handlers
 
 ## LaunchRequest
-The LaunchRequest is the intent evoked by the invocation name, the name that the user says to start the skill. (e.g **safe trek**) The user is than prompted what emergency he has
+The `LaunchRequest` is the intent evoked by the invocation name, the name that the user says to start the skill. (e.g **safe trek**) The user is than prompted what emergency he has
 
 ## InjuryHelpIntent 
 The `InjuryHelpIntent` is called in case some is hurt and injured and uses one of the following utterances:
@@ -25,7 +25,7 @@ The `InjuryHelpIntent` is called in case some is hurt and injured and uses one o
 which then calls `getDeviceAddress` and on success makes an API Call through ` createAlarm` setting `services.medical` to `true` 
 
 ## FireHelpIntent
-The 'FireHelpIntent is called in case of a fire and/or injuries and uses the following utterances:
+The 'FireHelpIntent` is called in case of a fire and/or injuries and uses the following utterances:
 ```
 "call the fire station",
 "call the fire fighters",
@@ -40,7 +40,7 @@ The 'FireHelpIntent is called in case of a fire and/or injuries and uses the fol
 which then calls `getDeviceAddress` and on success makes an API Call through ` createAlarm` setting `services.fire` to `true` 
 
 ## PoliceHelpIntent
-The `PoliceHelpIntent is called in case of a threat through a third person or any other safety issue and uses the following utterances:
+The `PoliceHelpIntent` is called in case of a threat through a third person or any other safety issue and uses the following utterances:
 ```
 "someone has followed me ",
 "I am in a dangerous situation",
@@ -53,7 +53,7 @@ The `PoliceHelpIntent is called in case of a threat through a third person or an
 which then calls `getDeviceAddress` and on success makes an API Call through ` createAlarm` setting `services.police` to `true` 
 
 ## GeneralHelpIntent
-The GeneralHelpIntent is designed so that a more general statement is handled appropriately. It starts a dialog using the following utterances:
+The `GeneralHelpIntent` is designed so that a more general statement is handled appropriately. It starts a dialog using the following utterances:
 ```
 get help please",
 "help me",

@@ -29,8 +29,8 @@ module.exports = (address,type,token) => {
           }
     }
     return axios.post('https://api-sandbox.safetrek.io/v1/alarms',data, config)
-      .then(() => {
-        return Promise.resolve()
+      .then((response) => {
+        return Promise.resolve(response)
       })
       .catch(error => {
         return Promise.reject(error)})

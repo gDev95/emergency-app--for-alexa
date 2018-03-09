@@ -36,10 +36,14 @@ module.exports = {
             repromptSpeech
           )
         }
+        else {
+          console.log('Intent: ', intentObj)
+        }
        
     },
     'InjuryHelpIntent': function () {
-      const accessToken = this.event.context.System.user.accessToken  
+      const accessToken = this.event.context.System.user.accessToken
+      const type = 'medical'  
       if(!accessToken){
         this.emit(
         ':tell', 
@@ -50,7 +54,7 @@ module.exports = {
       getDeviceAddress(this.event)
         .then((address) => {
             console.log('Device Address: ', address)
-            createAlarm(address,'medical',accessToken)
+            createAlarm(address,type,accessToken)
                 .then(() => {
                 this.emit(
                   ':tell', 
@@ -78,6 +82,7 @@ module.exports = {
     },
     'FireHelpIntent': function () {
       const accessToken = this.event.context.System.user.accessToken  
+      const type = 'fire'  
       if(!accessToken){
         this.emit(
         ':tell', 
@@ -88,7 +93,7 @@ module.exports = {
       getDeviceAddress(this.event)
         .then((address) => {
             console.log('Device Address: ', address)
-            createAlarm(address,'fire',accessToken)
+            createAlarm(address,type,accessToken)
                 .then(() => {
                 this.emit(
                   ':tell', 
@@ -115,7 +120,8 @@ module.exports = {
             })      
     },
     'PoliceHelpIntent': function () {
-      const accessToken = this.event.context.System.user.accessToken  
+      const accessToken = this.event.context.System.user.accessToken 
+      const type = 'police'   
       if(!accessToken){
         this.emit(
         ':tell', 
@@ -126,7 +132,7 @@ module.exports = {
       getDeviceAddress(this.event)
         .then((address) => {
             console.log('Device Address: ', address)
-            createAlarm(address,'medical',accessToken)
+            createAlarm(address,type ,accessToken)
                 .then(() => {
                 this.emit(
                   ':tell', 
@@ -171,5 +177,11 @@ module.exports = {
         'Stay safe!'
       )
     },
+    'Unhandled' : function () {
+      this.emit(
+        ':tell', 
+        'Stay safe!'
+      )
+    }
 }
 

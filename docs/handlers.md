@@ -1,4 +1,4 @@
-#Handlers
+# Handlers
 
 ## LaunchRequest
 The `LaunchRequest` is the intent evoked by the invocation name, the name that the user says to start the skill. (e.g **safe trek**) The user is than prompted what emergency he has

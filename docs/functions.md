@@ -3,7 +3,7 @@
 ## getDeviceAddress (event)
 Gets the full address (Street Address, City, State and Zip Code) from the device. 
 Utilizes the **DeviceAddressService** from the Alexa SDK and its **getFullAddress** function. 
-Takes an event as an argument
+Takes an event as an argument.
 Returns a promise.
 ```
 getDeviceAddress(event)
